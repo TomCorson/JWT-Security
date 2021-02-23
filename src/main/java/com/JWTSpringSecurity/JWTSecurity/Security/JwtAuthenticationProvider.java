@@ -1,13 +1,26 @@
 package com.JWTSpringSecurity.JWTSecurity.Security;
 
 import com.JWTSpringSecurity.JWTSecurity.Model.JwtAuthenticationToken;
-import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.core.Authentication;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UserDetails;
 
-public class JwtAuthenticationProvider implements AuthenticationProvider {
+import javax.xml.validation.Validator;
+
+public class JwtAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
+
+
     @Override
-    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+    protected void additionalAuthenticationChecks(UserDetails userDetails, UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken) throws AuthenticationException {
+
+    }
+
+    @Override
+    protected UserDetails retrieveUser(String username, UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken) throws AuthenticationException {
+        JwtAuthenticationToken jwtAuthenticationToken = (JwtAuthenticationToken) usernamePasswordAuthenticationToken;
+        String token = jwtAuthenticationToken.getToken();
+        JwtValidator
         return null;
     }
 
