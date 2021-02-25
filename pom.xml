@@ -37,6 +37,11 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.6.0</version>
+		</dependency>
+		<dependency>
 			<groupId>com.JWTSpringSecurity</groupId>
 			<artifactId>JWT-Security</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
