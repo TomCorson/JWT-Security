@@ -5,6 +5,18 @@ public class JwtUser {
     private Long userId;
     private String role;
 
+    public String getUserName() {
+        return UserName;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
     public void setUserName(String userName) {
         this.UserName = userName;
     }
