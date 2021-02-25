@@ -7,12 +7,22 @@ import java.util.Collection;
 import java.util.List;
 
 public class JwtUserDetails implements UserDetails {
+    private String userName;
+    private String token;
+    private Long id;
+    private Collection<? extends GrantedAuthority> authorities;
+
+
     public JwtUserDetails(String userName, Long userId, String token, List<GrantedAuthority> grantedAuthorities) {
+        this.userName=userName;
+        this.id=userId;
+        this.token=token;
+        this.authorities = grantedAuthorities;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return authorities;
     }
 
     @Override
@@ -22,26 +32,39 @@ public class JwtUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return null;
+        return userName;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
 }
