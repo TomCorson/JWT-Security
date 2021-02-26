@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/token")
 public class TokenController {
     @PostMapping("/{userName}")
-    public String generater(@RequestBody final JwtUser jwtUser) {
+    public String generate(@RequestBody final JwtUser jwtUser) {
         JwtGenerator jwtGenerator = new JwtGenerator();
         return jwtGenerator.generate(jwtUser);
     }
